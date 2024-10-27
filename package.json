@@ -1,0 +1,28 @@
+{
+  "name": "dev-meet",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server",
+    "dev": "nodemon start"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.7.0",
+    "nodemon": "^3.1.7",
+    "validator": "^13.12.0"
+  },
+  "keywords": [
+    "nodejs",
+    "backend",
+    "mongodb",
+    "javascript"
+  ],
+  "author": "Rana Sarkar",
+  "license": "ISC",
+  "description": ""
+}
