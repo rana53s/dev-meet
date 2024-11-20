@@ -5,7 +5,7 @@ const userAuth = async (req, res, next) => {
         // Read the cookies and token from from the req
         const { jwtToken } = req.cookies;
         if (!jwtToken) {
-            throw new Error("Invalid Token");
+            throw new Error("Unauthorized request, please login first");
         }
 
         // Validate the token

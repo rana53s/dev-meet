@@ -19,7 +19,8 @@ app.use('/profile', profileRouter);
 app.use('/request', requestRouter);
 app.use('/user', userRouter);
 
-const PORT = 3005
+const PORT = process.env.PORT;
+
 dbConfig().then(() => {
     console.log("Connected to the mongo db successfully");
     app.listen(PORT, () => {

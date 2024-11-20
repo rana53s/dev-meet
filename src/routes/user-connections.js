@@ -16,10 +16,16 @@ userRouter.get('/requests/received', userAuth, async(req, res) => {
             status: "interested"
         }).populate("fromUserId", USER_ITEMS)
 
+        console.log("Request: ", connectionRequests);
+        
+
         if (connectionRequests.length == 0) {
             res.status(200).send({ message: "No connection request is available for " + loggedInUser.firstName })
         } else {
-            const data = connectionRequests.map(row => row.fromUserId);
+            const data = connectionRequests.map(row => ({
+                requestId: row._id,
+                from: row.fromUserId
+            }));
             res.status(200).send({ data });
         }
     } catch (err) {
@@ -42,7 +48,7 @@ userRouter.get('/connections', userAuth, async(req, res) => {
             res.status(200).send({ message: "No connection is available for " + loggedInUser.firstName })
         } else {
             const data = connections.map( row => {
-                if (row.fromUserId._id == loggedInUser._id) {
+                if (row.fromUserId._id.toString() === loggedInUser._id.toString()) {
                     return row.toUserId;
                 } else {
                     return row.fromUserId; 
